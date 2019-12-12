@@ -85,14 +85,14 @@ public class Glavni extends javax.swing.JFrame {
                         if (am_pm == 1) {
 
                             ampm = "PM";
-                        } else {
+                        } else 
 
                             ampm = "AM";
 
                             DateTime.setText(""+hour + ":"+min + ":"+sec +":" +ampm + "/"+day +"/"+ month +"/"+ year);
                             sleep(1000);
 
-                        }
+                        
 
                     }
 
