@@ -14,6 +14,7 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -59,8 +60,8 @@ public class Glavni extends javax.swing.JFrame {
         Clock();
 
     }
-    
-        public void Clock() {
+
+    public void Clock() {
 
         Thread t = new Thread() {
 
@@ -75,7 +76,8 @@ public class Glavni extends javax.swing.JFrame {
                         int day = cl.get(Calendar.DAY_OF_MONTH);
                         int month = cl.get(Calendar.MONTH);
                         int year = cl.get(Calendar.YEAR);
-
+                        LocalDateTime ldt = LocalDateTime.now();
+                         int mjesecr = ldt.getMonthValue();
                         int sec = cl.get(Calendar.SECOND);
                         int min = cl.get(Calendar.MINUTE);
                         int hour = cl.get(Calendar.HOUR);
@@ -85,19 +87,16 @@ public class Glavni extends javax.swing.JFrame {
                         if (am_pm == 1) {
 
                             ampm = "PM";
-                        } else 
-
+                        } else {
                             ampm = "AM";
+                        }
 
-                            DateTime.setText(""+hour + ":"+min + ":"+sec +":" +ampm + "/"+day +"/"+ month +"/"+ year);
-                            sleep(1000);
-
-                        
+                        DateTime.setText("" + hour + ":" + min + ":" + sec + ":" + ampm + "/" + day + "/" + mjesecr + "/" + year);
+                        sleep(1000);
 
                     }
 
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
 
                     System.out.println(ex.getMessage());
 
@@ -107,7 +106,6 @@ public class Glavni extends javax.swing.JFrame {
 
         };
         t.start();
-        
 
     }
 
@@ -785,6 +783,11 @@ public class Glavni extends javax.swing.JFrame {
         pr1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pr1.setForeground(new java.awt.Color(0, 51, 255));
         pr1.setBorder(null);
+        pr1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pr1ActionPerformed(evt);
+            }
+        });
         unosRadna.getContentPane().add(pr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 170, 30));
 
         pr2.setBackground(new java.awt.Color(240, 240, 240));
@@ -8531,6 +8534,10 @@ public class Glavni extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jLabel284MouseClicked
+
+    private void pr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pr1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pr1ActionPerformed
 
     /**
      * @param args the command line arguments
